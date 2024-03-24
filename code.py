@@ -46,6 +46,9 @@ for i in range(pokoleniya):
         else:
             if x2 == 1:                          # Работа самих поколений
                 x[j] = "*"
+    if line == [' '] * string_len:
+        print('В мире не осталось живых клеток!')
+        break
     line = x[:-1]
     x[-1] = x[0]
     for j in line:
