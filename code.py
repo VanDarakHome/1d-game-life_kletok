@@ -31,7 +31,7 @@ for i in line:
 print()                                          # Подготовка к следующему поколению
 line.append(line[0])
 x = line # Копия строки
-line = x[:-1] # все эл. кроме последнего
+line = x[:-1] # все эл. кроме последнего(Чтобы не было ошибки)
 # -----------------------------------
 for i in range(pokoleniya):
     for j in range(string_len):
