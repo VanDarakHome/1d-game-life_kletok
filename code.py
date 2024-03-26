@@ -90,7 +90,11 @@ while True:
         print('Хорошо, вы согласились дать мне данные своей банковской карты пишите их сюда, и после этого вам будет предоставлен выбор между перезапуском игры')
         dannie = input()
         print('пасиба')
-        question2 = input('Хотите сыграть ещё раз?')
+        time.sleep(1)
+        print('Хотите сыграть ещё раз?')
+        print("1) Да")
+        print("2) Нет")
+        question2 = input()
         while question2 != '1' and question2 != '2' and question2 != '3':
             print('Введи 1/2/3')
             question2 = input()
