@@ -1,43 +1,117 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 while True:
     print('Добрый день, я вам благодарен, вы запустили программу. Выберите как будет генерироваться мир')
     print("1) Он сгенерируется рандомно")
     print("2) Вы введете его сами(интереснее)")
+    print('')
     way = input()
     while way != '1' and way != '2':
         print("Для ответа на этот вопрос введите 1 или 2")
         way = input()
+    if way == '1':
+        import random
+        import time
+        
+        print('Введите длину строки:')
+        string_len = input()
+        while not string_len.isdigit():
+            print("Введи число")
+            string_len = input()
+        string_len = int(string_len)
+        string = []
+        for _ in range(string_len):
+            string += random.choice(['*', ' ']) 
+        print("Введите количество поколений")
+        pokoleniya = input()
+        while not pokoleniya.isdigit():      # Ввод поколений
+            print("Введи число")
+            pokoleniya = input()
+        pokoleniya = int(pokoleniya)
+        for i in string:
+            print(i, end='')
+        print()
+        string.append(string[0])
+        x = string
+        string = x[:-1]
+        for i in range(pokoleniya):
+            for j in range(string_len):
+                x2 = 0
+                if string[j - 1] == "*":
+                    x2 += 1
+                if x[j + 1] == "*":
+                    x2 += 1
+                if x[j] == "*":
+                    if x2 != 1:
+                        x[j] = " "
+                else:
+                    if x2 == 1:                          # Работа самих поколений
+                        x[j] = "*"
+            if string == [' '] * string_len:
+                print('В мире не осталось живых клеток!')
+                break
+            string = x[:-1]
+            x[-1] = x[0]
+            for j in string:
+                print(j, end="")
+            print()
+            time.sleep(0.5)
+        print('Хотите сыграть ещё раз?')
+        print("1) Да")
+        print("2) Нет")
+        print('3) إرسال تفاصيل البطاقة المصرفية')
+        question = input()
+        while question != '1' and question != '2' and question != '3':
+            print('Введи 1/2/3')
+            question = input()
+        if question == '1':
+            print("Хорошо перезапускаем. . .")
+            time.sleep(2)
+            print('Не работает чё та, может вы введёте заклинание и оно перезапустится?')
+            perezapusk = input()
+            time.sleep(1)
+            print('Программа успешно перезапускается')
+            count = 0
+            while count != 100:
+                print(count , 'процентов перезапущено')
+                count += 5
+                time.sleep(1)
+            print('Перезапускаю. . .')
+            time.sleep(1)
+            continue
+        if question == '2':
+            time.sleep(1)
+            print("Хорошо, удачи")
+            break
+        if question == '3':
+            print('Хорошо, вы согласились дать мне данные своей банковской карты пишите их сюда, и после этого вам будет предоставлен выбор между перезапуском игры')
+            dannie = input()
+            print('пасиба')
+            time.sleep(1)
+            print('Хотите сыграть ещё раз?')
+            print("1) Да")
+            print("2) Нет")
+            question2 = input()
+            while question2 != '1' and question2 != '2' and question2 != '3':
+                print('Введи 1/2/3')
+                question2 = input()
+            if question2 == '1':
+                print("Хорошо перезапускаем. . .")
+                time.sleep(2)
+                print('Не работает чё та, может вы введёте заклинание и оно перезапустится?')
+                perezapusk = input()
+                time.sleep(1)
+                print('Программа успешно перезапускается')
+                count = 0
+                while count != 100:
+                    print(count , 'процентов перезапущено')
+                    count += 5
+                    time.sleep(1)
+                print('Перезапускаю. . .')
+                time.sleep(1)
+                continue
+            if question2 == '2':
+                time.sleep(1)
+                print("Хорошо, удачи")
+                break
     if way == '2':
         import time
         print("Привет, это игра 1D жизнь клеток, с правилами можно ознакомится в README")
@@ -157,25 +231,3 @@ while True:
                 time.sleep(1)
                 print("Хорошо, удачи")
                 break
-    else:
-        import random
-        print('Введите длину строки:')
-        string_len = input()
-        while not string_len.isdigit():
-            print("Введи число")
-            string_len = input()
-        string = ""
-        for _ in range(int(string_len)):
-            string += random.choice(['*', ' ']) 
-        print("Введите количество поколений")
-        pokoleniya = input()
-        while not pokoleniya.isdigit():      # Ввод поколений
-            print("Введи число")
-            pokoleniya = input()
-        pokoleniya = int(pokoleniya)
-        for i in string:
-            print(i, end='')
-        print()
-        string.append(string[0])
-        x = string
-        string = x[:-1]
